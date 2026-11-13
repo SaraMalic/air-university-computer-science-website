@@ -1,0 +1,1488 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Department of Computer Science | Air University Kamra</title>
+
+<style>
+:root {
+    --black: #0b0b0d;
+    --dark: #151518;
+    --card: #1c1b20;
+    --maroon: #701c35;
+    --red: #a83250;
+    --pink: #e58ba2;
+    --white: #ffffff;
+    --grey: #c9c9c9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--black);
+    color: var(--white);
+    overflow-x: hidden;
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+section {
+    padding: 90px 8%;
+    scroll-margin-top: 80px;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-heading h2 {
+    font-size: clamp(28px, 4vw, 42px);
+    margin-bottom: 12px;
+}
+
+.section-heading h2 span {
+    color: var(--pink);
+}
+
+.section-heading p {
+    color: var(--grey);
+    max-width: 700px;
+    margin: auto;
+}
+
+.eyebrow {
+    color: var(--pink);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* NAVIGATION */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(11,11,13,.94);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(229,139,162,.2);
+}
+
+.navbar {
+    min-height: 76px;
+    padding: 12px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--white);
+}
+
+.logo span {
+    color: var(--pink);
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nav-links a {
+    font-size: 13px;
+    color: var(--grey);
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--pink);
+}
+
+/* HERO */
+
+.hero {
+    min-height: 680px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 100px 8%;
+    background:
+        linear-gradient(90deg, rgba(11,11,13,.97), rgba(11,11,13,.76), rgba(11,11,13,.35)),
+        url("https://aack.au.edu.pk/Pages/CampusLife/Images/Academic_Block_Images/block1.jpeg")
+        center/cover no-repeat;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 480px;
+    height: 480px;
+    border: 1px solid rgba(229,139,162,.25);
+    border-radius: 50%;
+    right: -100px;
+    top: 80px;
+    animation: rotate 25s linear infinite;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 330px;
+    height: 330px;
+    border: 1px solid rgba(229,139,162,.3);
+    border-radius: 50%;
+    right: -20px;
+    top: 155px;
+    animation: rotate 18s linear infinite reverse;
+}
+
+.hero-content {
+    max-width: 750px;
+    position: relative;
+    z-index: 2;
+    animation: slideUp 1.2s ease both;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 6vw, 72px);
+    line-height: 1.13;
+    margin: 18px 0;
+}
+
+.hero h1 span {
+    color: var(--pink);
+}
+
+.hero p {
+    max-width: 650px;
+    color: #e1dce0;
+    font-size: 17px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 25px;
+    margin: 5px 8px 5px 0;
+    background: var(--maroon);
+    border: 1px solid var(--red);
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: .35s;
+}
+
+.btn:hover {
+    background: var(--red);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(168,50,80,.3);
+}
+
+.btn-outline {
+    background: transparent;
+    border-color: var(--pink);
+}
+
+/* MOVING STRIP */
+
+.moving-strip {
+    overflow: hidden;
+    background: var(--maroon);
+    padding: 13px 0;
+    white-space: nowrap;
+}
+
+.moving-text {
+    display: inline-block;
+    animation: marquee 28s linear infinite;
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+/* INTRODUCTION */
+
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    align-items: center;
+    gap: 50px;
+}
+
+.intro-text h2 {
+    font-size: 36px;
+    margin: 10px 0 20px;
+}
+
+.intro-text p {
+    color: var(--grey);
+    margin-bottom: 16px;
+}
+
+.intro-image {
+    position: relative;
+}
+
+.intro-image img {
+    width: 100%;
+    height: 370px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid var(--maroon);
+    transition: .5s;
+}
+
+.intro-image:hover img {
+    transform: scale(1.025);
+    box-shadow: 0 15px 40px rgba(168,50,80,.25);
+}
+
+.image-label {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background: rgba(11,11,13,.88);
+    padding: 10px 15px;
+    border-left: 3px solid var(--pink);
+}
+
+/* PROGRAMS */
+
+.program-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+}
+
+.program-card {
+    padding: 28px;
+    background: linear-gradient(145deg, #211b20, #141416);
+    border: 1px solid #43202d;
+    border-radius: 12px;
+    transition: .4s;
+    position: relative;
+    overflow: hidden;
+}
+
+.program-card::after {
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 0;
+    bottom: 0;
+    left: 0;
+    background: var(--pink);
+    transition: .4s;
+}
+
+.program-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--pink);
+    box-shadow: 0 15px 35px rgba(112,28,53,.25);
+}
+
+.program-card:hover::after {
+    width: 100%;
+}
+
+.program-icon {
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+.program-card h3 {
+    margin-bottom: 10px;
+    color: var(--pink);
+}
+
+.program-card p {
+    color: var(--grey);
+    font-size: 14px;
+}
+
+/* CAMPUS GALLERY */
+
+.gallery {
+    background: #111114;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.gallery-item {
+    position: relative;
+    height: 260px;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid #492331;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .7s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.12);
+}
+
+.gallery-caption {
+    position: absolute;
+    inset: auto 0 0;
+    padding: 35px 18px 16px;
+    background: linear-gradient(transparent, rgba(0,0,0,.9));
+    font-weight: bold;
+}
+
+/* FACILITIES */
+
+.facility-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.facility {
+    background: var(--card);
+    padding: 25px;
+    border-radius: 10px;
+    border-bottom: 3px solid var(--maroon);
+    transition: .35s;
+}
+
+.facility:hover {
+    transform: translateY(-8px);
+    background: #282027;
+    border-color: var(--pink);
+}
+
+.facility h3 {
+    color: var(--pink);
+    margin: 8px 0;
+}
+
+.facility p {
+    color: var(--grey);
+    font-size: 14px;
+}
+
+/* COMPUTER SCIENCE GRAPHICS */
+
+.graphics {
+    background:
+        radial-gradient(circle at 15% 20%, rgba(112,28,53,.25), transparent 30%),
+        radial-gradient(circle at 85% 80%, rgba(168,50,80,.15), transparent 30%),
+        #111114;
+}
+
+.graphic-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.graphic-card {
+    min-height: 220px;
+    background: #1b191e;
+    border: 1px solid #512637;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    transition: .4s;
+}
+
+.graphic-card:hover {
+    transform: translateY(-9px) rotateX(3deg);
+    box-shadow: 0 15px 30px rgba(168,50,80,.2);
+}
+
+.graphic-card svg {
+    width: 85px;
+    height: 85px;
+    margin: 0 auto 15px;
+    stroke: var(--pink);
+    fill: none;
+    stroke-width: 2;
+    animation: float 4s ease-in-out infinite;
+}
+
+.graphic-card h3 {
+    color: var(--pink);
+    margin-bottom: 8px;
+}
+
+.graphic-card p {
+    color: var(--grey);
+    font-size: 14px;
+}
+
+/* STUDENT GUIDE */
+
+.guide-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.guide-box {
+    background: var(--card);
+    padding: 28px;
+    border-radius: 10px;
+    border-left: 3px solid var(--red);
+    transition: .3s;
+}
+
+.guide-box:hover {
+    transform: translateX(6px);
+}
+
+.guide-box h3 {
+    color: var(--pink);
+    margin-bottom: 12px;
+}
+
+.guide-box ul {
+    padding-left: 20px;
+    color: var(--grey);
+}
+
+.guide-box li {
+    margin: 8px 0;
+}
+
+/* TIMETABLE */
+
+.table-wrap {
+    overflow-x: auto;
+    border-radius: 10px;
+    border: 1px solid #512637;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+    background: var(--card);
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #393039;
+}
+
+th {
+    background: var(--maroon);
+    color: white;
+}
+
+td {
+    color: var(--grey);
+}
+
+tr:hover td {
+    background: #2a2026;
+    color: white;
+}
+
+/* MEDIA */
+
+.media-section {
+    background: #111114;
+}
+
+.media-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.media-card {
+    background: var(--card);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #512637;
+    transition: .35s;
+}
+
+.media-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--pink);
+}
+
+.media-card h3 {
+    color: var(--pink);
+    margin-bottom: 15px;
+}
+
+.media-card p {
+    color: var(--grey);
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+audio, video {
+    width: 100%;
+    border-radius: 7px;
+}
+
+.video-placeholder {
+    background: #09090b;
+    min-height: 230px;
+    display: grid;
+    place-items: center;
+    border-radius: 8px;
+    color: var(--pink);
+    text-align: center;
+    padding: 20px;
+}
+
+/* REGISTRATION */
+
+.form-section {
+    background:
+        linear-gradient(rgba(11,11,13,.94), rgba(11,11,13,.96)),
+        url("https://aack.au.edu.pk/Pages/CampusLife/Images/Academic_Block_Images/block4.jpeg")
+        center/cover fixed;
+}
+
+.form-box {
+    max-width: 750px;
+    margin: auto;
+    padding: 35px;
+    background: rgba(28,27,32,.95);
+    border: 1px solid #512637;
+    border-radius: 12px;
+}
+
+.form-box label {
+    display: block;
+    margin: 14px 0 6px;
+    color: var(--pink);
+}
+
+.form-box input,
+.form-box select,
+.form-box textarea {
+    width: 100%;
+    padding: 13px;
+    border-radius: 5px;
+    border: 1px solid #54404a;
+    background: #101013;
+    color: white;
+    font-family: inherit;
+}
+
+.form-box input:focus,
+.form-box select:focus,
+.form-box textarea:focus {
+    outline: 1px solid var(--pink);
+}
+
+.form-box button {
+    margin-top: 20px;
+    padding: 13px 25px;
+    background: var(--maroon);
+    border: 1px solid var(--pink);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* LINKS */
+
+.link-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 15px;
+}
+
+.quick-link {
+    padding: 20px;
+    background: var(--card);
+    border: 1px solid #462331;
+    border-radius: 8px;
+    transition: .3s;
+}
+
+.quick-link:hover {
+    background: var(--maroon);
+    transform: translateY(-5px);
+}
+
+.quick-link span {
+    display: block;
+    color: var(--pink);
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+/* FAQ */
+
+.faq-list {
+    max-width: 850px;
+    margin: auto;
+}
+
+details {
+    background: var(--card);
+    margin: 12px 0;
+    border: 1px solid #492331;
+    border-radius: 8px;
+    padding: 18px;
+    transition: .3s;
+}
+
+details[open] {
+    border-color: var(--pink);
+}
+
+summary {
+    cursor: pointer;
+    color: var(--pink);
+    font-weight: bold;
+}
+
+details p {
+    color: var(--grey);
+    padding-top: 12px;
+}
+
+/* FOOTER */
+
+footer {
+    background: #080809;
+    padding: 55px 8% 20px;
+    border-top: 2px solid var(--maroon);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 35px;
+    margin-bottom: 35px;
+}
+
+footer h3 {
+    color: var(--pink);
+    margin-bottom: 13px;
+}
+
+footer p, footer a {
+    color: var(--grey);
+    font-size: 14px;
+}
+
+footer a {
+    display: block;
+    margin: 7px 0;
+}
+
+footer a:hover {
+    color: var(--pink);
+}
+
+.copyright {
+    text-align: center;
+    border-top: 1px solid #30252b;
+    padding-top: 20px;
+    color: #888;
+    font-size: 13px;
+}
+
+/* ANIMATIONS */
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(45px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 8px rgba(229,139,162,.1); }
+    50% { box-shadow: 0 0 25px rgba(229,139,162,.3); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: .5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.08); }
+}
+
+.program-card, .graphic-card, .media-card {
+    animation: glow 5s ease-in-out infinite;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 900px) {
+    .intro-grid, .guide-grid, .media-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-grid, .graphic-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .hero {
+        min-height: 580px;
+    }
+}
+
+@media(max-width: 600px) {
+    section {
+        padding: 65px 6%;
+    }
+
+    .navbar {
+        flex-direction: column;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .gallery-grid, .graphic-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        min-height: 600px;
+    }
+
+    .form-box {
+        padding: 22px;
+    }
+}
+
+@media(prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+        <a href="#home" class="logo">AIR <span>UNIVERSITY</span></a>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#programs">Programs</a>
+            <a href="#campus">Campus</a>
+            <a href="#facilities">Facilities</a>
+            <a href="#graphics">Technology</a>
+            <a href="#guide">Student Guide</a>
+            <a href="#timetable">Timetable</a>
+            <a href="#media">Media</a>
+            <a href="#registration">Registration</a>
+        </div>
+    </nav>
+</header>
+
+<!-- HOME -->
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <div class="eyebrow">Air University · Aerospace & Aviation Campus · Kamra</div>
+
+        <h1>Department of <span>Computer Science</span></h1>
+
+        <p>
+            Welcome to the Department of Computer Science at Air University,
+            Aerospace and Aviation Campus, Kamra. Discover computing,
+            technology, innovation and opportunities for learning.
+        </p>
+
+        <a href="#about" class="btn">Discover Our Department</a>
+        <a href="https://aack.au.edu.pk/" target="_blank" class="btn btn-outline">
+            Official University Website
+        </a>
+    </div>
+</section>
+
+<div class="moving-strip">
+    <div class="moving-text">
+        COMPUTER SCIENCE ✦ TECHNOLOGY ✦ INNOVATION ✦ PROGRAMMING ✦ ARTIFICIAL INTELLIGENCE ✦ CYBER SECURITY ✦ DATA SCIENCE ✦
+        COMPUTER SCIENCE ✦ TECHNOLOGY ✦ INNOVATION ✦ PROGRAMMING ✦ ARTIFICIAL INTELLIGENCE ✦ CYBER SECURITY ✦ DATA SCIENCE ✦
+    </div>
+</div>
+
+<!-- ABOUT -->
+
+<section id="about">
+    <div class="intro-grid">
+        <div class="intro-text">
+            <div class="eyebrow">About the Department</div>
+            <h2>Building Knowledge. <span style="color:var(--pink)">Creating Possibilities.</span></h2>
+
+            <p>
+                The Department of Computer Science at Air University Aerospace
+                and Aviation Campus, Kamra, is dedicated to quality education,
+                research and practical learning in computing and technology.
+            </p>
+
+            <p>
+                The department provides opportunities to develop a strong
+                theoretical foundation and practical skills in areas such as
+                artificial intelligence, machine learning, software
+                development, information security and modern computing.
+            </p>
+
+            <p>
+                Students are encouraged to develop creativity, critical
+                thinking, teamwork and problem-solving abilities to prepare
+                for the changing world of technology.
+            </p>
+
+            <a href="https://aack.au.edu.pk/pages/departments/computer_science/cs_intro.aspx"
+               target="_blank" class="btn">Read Official Introduction</a>
+        </div>
+
+        <div class="intro-image">
+            <img src="https://aack.au.edu.pk/Pages/CampusLife/Images/Academic_Block_Images/block1.jpeg"
+                 alt="Air University Kamra academic block">
+            <div class="image-label">Air University — Kamra Academic Block</div>
+        </div>
+    </div>
+</section>
+
+<!-- PROGRAMS -->
+
+<section id="programs">
+    <div class="section-heading">
+        <div class="eyebrow">Academic Opportunities</div>
+        <h2>Programs <span>Offered</span></h2>
+        <p>The Department of Computer Science offers undergraduate and postgraduate programs in computing disciplines.</p>
+    </div>
+
+    <div class="program-grid">
+        <div class="program-card">
+            <div class="program-icon">💻</div>
+            <h3>BS Computer Science</h3>
+            <p>Study programming, algorithms, computing systems and the foundations of computer science.</p>
+        </div>
+
+        <div class="program-card">
+            <div class="program-icon">🛡️</div>
+            <h3>BS Cyber Security</h3>
+            <p>Learn about information security, digital protection and secure computing systems.</p>
+        </div>
+
+        <div class="program-card">
+            <div class="program-icon">⚙️</div>
+            <h3>BS Software Engineering</h3>
+            <p>Develop knowledge of software design, development, testing and project practices.</p>
+        </div>
+
+        <div class="program-card">
+            <div class="program-icon">🤖</div>
+            <h3>BS Artificial Intelligence</h3>
+            <p>Explore intelligent systems, machine learning and modern AI applications.</p>
+        </div>
+
+        <div class="program-card">
+            <div class="program-icon">📊</div>
+            <h3>BS Data Science</h3>
+            <p>Learn about data analysis, computing, statistics and information-driven solutions.</p>
+        </div>
+
+        <div class="program-card">
+            <div class="program-icon">🎓</div>
+            <h3>Postgraduate Studies</h3>
+            <p>Explore advanced study and research opportunities in Computer Science.</p>
+        </div>
+    </div>
+
+    <p style="text-align:center;color:var(--grey);margin-top:25px;font-size:13px;">
+        For current program details and eligibility, visit the official department website.
+    </p>
+</section>
+
+<!-- CAMPUS GALLERY -->
+
+<section class="gallery" id="campus">
+    <div class="section-heading">
+        <div class="eyebrow">Explore Our Campus</div>
+        <h2>Life at <span>Air University Kamra</span></h2>
+        <p>A glimpse of the campus environment and academic facilities.</p>
+    </div>
+
+    <div class="gallery-grid">
+        <div class="gallery-item">
+            <img src="https://aack.au.edu.pk/Pages/CampusLife/Images/Academic_Block_Images/block1.jpeg"
+                 alt="Air University Kamra academic block entrance">
+            <div class="gallery-caption">Academic Block & Campus Entrance</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://www.au.edu.pk/AU_New_Assets/images/Campuses/kamra.jpg"
+                 alt="Air University Kamra campus building">
+            <div class="gallery-caption">Air University Kamra Campus</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://aack.au.edu.pk/Pages/CampusLife/Images/Academic_Block_Images/block4.jpeg"
+                 alt="Interior atrium of academic block">
+            <div class="gallery-caption">Academic Block Atrium</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://aack.au.edu.pk/Pages/About/About_Images/visitau1.jpg"
+                 alt="Air University Kamra aviation monument">
+            <div class="gallery-caption">Campus Aviation Monument</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://www.au.edu.pk/pages/Plainning_and_Development/Pics/Kamra_Campus_P_1_2.png"
+                 alt="Air University Kamra academic building">
+            <div class="gallery-caption">Academic Campus Building</div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://aack.au.edu.pk/Pages/CampusLife/Images/Academic_Block_Images/block1.jpeg"
+                 alt="Air University Kamra campus view">
+            <div class="gallery-caption">A View of the Campus</div>
+        </div>
+    </div>
+
+    <p style="text-align:center;margin-top:25px;color:var(--grey);font-size:13px;">
+        Campus photographs are linked from Air University and its official campus pages.
+    </p>
+</section>
+
+<!-- FACILITIES -->
+
+<section id="facilities">
+    <div class="section-heading">
+        <div class="eyebrow">Learning Environment</div>
+        <h2>Campus <span>Facilities</span></h2>
+        <p>Facilities that support academic learning, student development and campus life.</p>
+    </div>
+
+    <div class="facility-grid">
+        <div class="facility">
+            <div class="program-icon">🖥️</div>
+            <h3>Computing Laboratories</h3>
+            <p>Practical learning spaces where students can develop technical and computing skills.</p>
+        </div>
+
+        <div class="facility">
+            <div class="program-icon">📚</div>
+            <h3>University Library</h3>
+            <p>Access to books, journals, research material and digital learning resources.</p>
+        </div>
+
+        <div class="facility">
+            <div class="program-icon">🏫</div>
+            <h3>Classrooms</h3>
+            <p>Academic spaces designed to support lectures, discussions and presentations.</p>
+        </div>
+
+        <div class="facility">
+            <div class="program-icon">🔬</div>
+            <h3>Research & Innovation</h3>
+            <p>Opportunities to develop ideas, explore technology and work on academic projects.</p>
+        </div>
+
+        <div class="facility">
+            <div class="program-icon">🏃</div>
+            <h3>Sports Facilities</h3>
+            <p>Campus activities and sports facilities that support student participation.</p>
+        </div>
+
+        <div class="facility">
+            <div class="program-icon">🤝</div>
+            <h3>Student Activities</h3>
+            <p>Co-curricular activities, events and opportunities for teamwork and communication.</p>
+        </div>
+    </div>
+</section>
+
+<!-- COMPUTER SCIENCE GRAPHICS -->
+
+<section class="graphics" id="graphics">
+    <div class="section-heading">
+        <div class="eyebrow">The World of Computing</div>
+        <h2>Explore <span>Computer Science</span></h2>
+        <p>Computer Science connects ideas, logic and technology to solve real-world problems.</p>
+    </div>
+
+    <div class="graphic-grid">
+
+        <div class="graphic-card">
+            <svg viewBox="0 0 100 100">
+                <rect x="12" y="15" width="76" height="55" rx="5"/>
+                <path d="M30 83 H70 M50 70 V83"/>
+                <path d="M35 35 L25 43 L35 51 M65 35 L75 43 L65 51 M56 32 L44 55"/>
+            </svg>
+            <h3>Programming</h3>
+            <p>Writing instructions and developing software solutions through code.</p>
+        </div>
+
+        <div class="graphic-card">
+            <svg viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="15"/>
+                <circle cx="50" cy="15" r="7"/>
+                <circle cx="50" cy="85" r="7"/>
+                <circle cx="15" cy="50" r="7"/>
+                <circle cx="85" cy="50" r="7"/>
+                <path d="M50 35 V22 M50 65 V78 M35 50 H22 M65 50 H78"/>
+                <path d="M25 25 L39 39 M75 25 L61 39 M25 75 L39 61 M75 75 L61 61"/>
+            </svg>
+            <h3>Artificial Intelligence</h3>
+            <p>Building systems that can recognize patterns and perform intelligent tasks.</p>
+        </div>
+
+        <div class="graphic-card">
+            <svg viewBox="0 0 100 100">
+                <path d="M50 10 L82 23 V48 C82 69 67 83 50 91 C33 83 18 69 18 48 V23 Z"/>
+                <path d="M35 49 L46 60 L67 37"/>
+            </svg>
+            <h3>Cyber Security</h3>
+            <p>Understanding digital safety, privacy and the protection of information.</p>
+        </div>
+
+        <div class="graphic-card">
+            <svg viewBox="0 0 100 100">
+                <path d="M15 80 V20 M15 80 H88"/>
+                <rect x="27" y="50" width="12" height="30"/>
+                <rect x="47" y="35" width="12" height="45"/>
+                <rect x="67" y="18" width="12" height="62"/>
+            </svg>
+            <h3>Data Science</h3>
+            <p>Finding useful information and patterns through data analysis.</p>
+        </div>
+
+        <div class="graphic-card">
+            <svg viewBox="0 0 100 100">
+                <rect x="15" y="20" width="70" height="60" rx="5"/>
+                <path d="M28 35 H72 M28 48 H72 M28 61 H55"/>
+                <path d="M10 88 H90"/>
+            </svg>
+            <h3>Software Development</h3>
+            <p>Planning, designing, building and improving computer applications.</p>
+        </div>
+
+        <div class="graphic-card">
+            <svg viewBox="0 0 100 100">
+                <path d="M50 10 V90 M10 50 H90"/>
+                <path d="M20 20 L80 80 M80 20 L20 80"/>
+                <circle cx="50" cy="50" r="13"/>
+                <circle cx="50" cy="10" r="5"/>
+                <circle cx="50" cy="90" r="5"/>
+                <circle cx="10" cy="50" r="5"/>
+                <circle cx="90" cy="50" r="5"/>
+            </svg>
+            <h3>Innovation</h3>
+            <p>Turning creative ideas into useful solutions through technology.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- STUDENT GUIDE -->
+
+<section id="guide">
+    <div class="section-heading">
+        <div class="eyebrow">Student Corner</div>
+        <h2>Student <span>Guide</span></h2>
+        <p>Useful information to help students stay organized and make the most of university life.</p>
+    </div>
+
+    <div class="guide-grid">
+        <div class="guide-box">
+            <h3>Academic Guidance</h3>
+            <ul>
+                <li>Attend lectures and laboratory sessions regularly.</li>
+                <li>Keep track of assignments and deadlines.</li>
+                <li>Review lecture notes and course material.</li>
+                <li>Participate in class discussions.</li>
+                <li>Ask instructors for academic guidance when needed.</li>
+            </ul>
+        </div>
+
+        <div class="guide-box">
+            <h3>Learning Skills</h3>
+            <ul>
+                <li>Practice programming regularly.</li>
+                <li>Develop logical and problem-solving skills.</li>
+                <li>Work on small academic projects.</li>
+                <li>Explore useful educational resources.</li>
+                <li>Build communication and teamwork skills.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- TIMETABLE -->
+
+<section id="timetable">
+    <div class="section-heading">
+        <div class="eyebrow">Academic Planning</div>
+        <h2>Sample Class <span>Timetable</span></h2>
+        <p>An example timetable layout for demonstrating the HTML table feature.</p>
+    </div>
+
+    <div class="table-wrap">
+        <table>
+            <tr>
+                <th>Day</th>
+                <th>9:00 – 10:00</th>
+                <th>10:00 – 11:00</th>
+                <th>11:00 – 12:00</th>
+                <th>12:00 – 1:00</th>
+            </tr>
+            <tr>
+                <td>Monday</td>
+                <td>Programming</td>
+                <td>Mathematics</td>
+                <td>ICT</td>
+                <td>Lab</td>
+            </tr>
+            <tr>
+                <td>Tuesday</td>
+                <td>Physics</td>
+                <td>Programming</td>
+                <td>English</td>
+                <td>Lab</td>
+            </tr>
+            <tr>
+                <td>Wednesday</td>
+                <td>ICT</td>
+                <td>Mathematics</td>
+                <td>Programming</td>
+                <td>Study</td>
+            </tr>
+            <tr>
+                <td>Thursday</td>
+                <td>Physics</td>
+                <td>English</td>
+                <td>ICT</td>
+                <td>Lab</td>
+            </tr>
+            <tr>
+                <td>Friday</td>
+                <td>Programming</td>
+                <td>Mathematics</td>
+                <td>Project Work</td>
+                <td>Study</td>
+            </tr>
+        </table>
+    </div>
+
+    <p style="color:var(--grey);font-size:13px;margin-top:12px;">
+        Note: This is a sample timetable for the website demonstration, not an official university schedule.
+    </p>
+</section>
+
+<!-- MEDIA -->
+
+<section class="media-section" id="media">
+    <div class="section-heading">
+        <div class="eyebrow">Multimedia Experience</div>
+        <h2>Department <span>Media</span></h2>
+        <p>Explore the department through audio, video and visual content.</p>
+    </div>
+
+    <div class="media-grid">
+
+        <div class="media-card">
+            <h3>🎙️ Department Introduction</h3>
+
+           <audio controls preload="metadata" style="width:100%;">
+    <source src="./media/computer-science-intro.wav" type="audio/wav">
+    Your browser does not support audio playback.
+</audio>
+
+            <p>
+                Listen to an introduction to the Department of Computer Science
+                at Air University, Kamra.
+            </p>
+        </div>
+
+        <div class="media-card">
+            <h3>🎬 Campus Video</h3>
+
+            <iframe
+    width="100%"
+    height="250"
+    src="https://www.youtube.com/embed/qYrKtdDPAxk"
+    title="Air University Kamra Campus Tour"
+    frameborder="0"
+    allowfullscreen
+    style="border-radius:8px;">
+</iframe>
+
+        </div>
+
+        <div class="media-card">
+            <h3>🏛️ Campus Photograph</h3>
+            <img src="https://aack.au.edu.pk/Pages/About/About_Images/visitau1.jpg"
+                 alt="Air University Kamra entrance monument"
+                 style="width:100%;height:230px;object-fit:cover;border-radius:8px;">
+            <p>A view of the aviation monument at Air University Kamra.</p>
+        </div>
+
+        <div class="media-card">
+            <h3>💡 Computing & Innovation</h3>
+            <div class="video-placeholder">
+                <div>
+                    <div style="font-size:55px;animation:pulse 3s infinite;">&lt;/&gt;</div>
+                    <h2 style="color:var(--pink);">IDEAS INTO CODE</h2>
+                    <p>Learn · Create · Innovate</p>
+                </div>
+            </div>
+            <p>A graphic representing programming and creative computing.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- REGISTRATION -->
+
+<section class="form-section" id="registration">
+    <div class="section-heading">
+        <div class="eyebrow">Student Registration</div>
+        <h2>Join Our <span>Community</span></h2>
+        <p>Sample student information form demonstrating HTML form elements.</p>
+    </div>
+
+    <div class="form-box">
+        <form action="#" method="get">
+            <label for="fullname">Full Name</label>
+            <input type="text" id="fullname" name="fullname"
+                   placeholder="Enter your full name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email"
+                   placeholder="Enter your email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password"
+                   placeholder="Create a password" required>
+
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" name="dob">
+
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender">
+                <option value="">Select an option</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Prefer not to say</option>
+            </select>
+
+            <label for="program">Program of Interest</label>
+            <select id="program" name="program">
+                <option value="">Select a program</option>
+                <option>BS Computer Science</option>
+                <option>BS Cyber Security</option>
+                <option>BS Software Engineering</option>
+                <option>BS Artificial Intelligence</option>
+                <option>BS Data Science</option>
+            </select>
+
+            <label for="interests">Areas of Interest</label>
+            <input type="text" id="interests" name="interests"
+                   placeholder="e.g. Programming, AI, Web Development">
+
+            <label for="comments">Additional Comments</label>
+            <textarea id="comments" name="comments" rows="4"
+                      placeholder="Write your comments here"></textarea>
+
+            <button type="submit">Submit Form</button>
+        </form>
+
+        <p style="font-size:12px;color:var(--grey);margin-top:12px;">
+            This is a demonstration form for an academic HTML assignment.
+            It is not connected to the university's admission system.
+        </p>
+    </div>
+</section>
+
+<!-- QUICK LINKS -->
+
+<section id="resources">
+    <div class="section-heading">
+        <div class="eyebrow">Explore Further</div>
+        <h2>Useful <span>University Links</span></h2>
+        <p>Visit official university pages for updated information and resources.</p>
+    </div>
+
+    <div class="link-grid">
+        <a class="quick-link" href="https://aack.au.edu.pk/" target="_blank">
+            Official Campus Website
+            <span>Air University Kamra</span>
+        </a>
+
+        <a class="quick-link"
+           href="https://aack.au.edu.pk/pages/departments/computer_science/cs_intro.aspx"
+           target="_blank">
+            Computer Science Department
+            <span>Department introduction</span>
+        </a>
+
+        <a class="quick-link"
+           href="https://aack.au.edu.pk/Pages/CampusLife/AUAACK_Campus_Life.aspx"
+           target="_blank">
+            Campus Life
+            <span>Explore campus facilities</span>
+        </a>
+
+        <a class="quick-link"
+           href="https://aack.au.edu.pk/Pages/CampusLife/AUAACK_Library.aspx"
+           target="_blank">
+            University Library
+            <span>Library information</span>
+        </a>
+
+        <a class="quick-link"
+           href="https://aack.au.edu.pk/Pages/Departments/Computer_Science/Faculty.aspx"
+           target="_blank">
+            Department Faculty
+            <span>Faculty information</span>
+        </a>
+
+        <a class="quick-link"
+           href="https://aack.au.edu.pk/Pages/About/Contact_Us.aspx"
+           target="_blank">
+            Contact Information
+            <span>Official campus contact details</span>
+        </a>
+    </div>
+</section>
+
+<!-- FAQ -->
+
+<section id="faq">
+    <div class="section-heading">
+        <div class="eyebrow">Information Desk</div>
+        <h2>Frequently Asked <span>Questions</span></h2>
+    </div>
+
+    <div class="faq-list">
+        <details>
+            <summary>Where is Air University Aerospace and Aviation Campus located?</summary>
+            <p>The campus is located at Aviation City, Kamra, Attock, Pakistan.</p>
+        </details>
+
+        <details>
+            <summary>What is Computer Science?</summary>
+            <p>Computer Science is the study of computers, computing systems, algorithms, programming and information technology.</p>
+        </details>
+
+        <details>
+            <summary>What areas are covered in Computer Science?</summary>
+            <p>Areas include programming, software development, artificial intelligence, cybersecurity, data science and computing systems.</p>
+        </details>
+
+        <details>
+            <summary>Where can students find official university information?</summary>
+            <p>Students can visit the official Air University Kamra website for updated academic information, notices and resources.</p>
+        </details>
+    </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+    <div class="footer-grid">
+        <div>
+            <h3>Department of Computer Science</h3>
+            <p>
+                Air University Aerospace and Aviation Campus, Kamra.
+                Dedicated to learning, research, creativity and technological innovation.
+            </p>
+        </div>
+
+        <div>
+            <h3>Explore</h3>
+            <a href="#about">About Department</a>
+            <a href="#programs">Academic Programs</a>
+            <a href="#campus">Campus Gallery</a>
+            <a href="#facilities">Facilities</a>
+        </div>
+
+        <div>
+            <h3>Quick Access</h3>
+            <a href="#media">Department Media</a>
+            <a href="#registration">Registration Form</a>
+            <a href="#resources">University Links</a>
+            <a href="https://aack.au.edu.pk/" target="_blank">Official Website</a>
+        </div>
+    </div>
+
+    <div class="copyright">
+        © 2026 Department of Computer Science | Air University Kamra
+        <br>
+        Designed for ICT Lab Task 10
+    </div>
+</footer>
+
+</body>
+</html>
